@@ -2,7 +2,10 @@ use bevy::prelude::*;
 use clap::{CommandFactory, Parser};
 use std::path::Path;
 
+pub mod agent;
+pub mod bridge;
 pub mod config;
+pub mod game;
 pub mod unit;
 
 #[derive(Debug, clap::Subcommand)]
@@ -12,6 +15,7 @@ enum SubCmd {
 }
 
 #[derive(Parser, Debug)]
+#[command(about)]
 struct Args {
     #[command(subcommand)]
     cmd: SubCmd,
